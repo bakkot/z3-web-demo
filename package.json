@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "copy-files": "mkdir -p build && cp node_modules/z3-solver/build/z3-built.js node_modules/z3-solver/build/z3-built.wasm node_modules/z3-solver/build/z3-built.worker.js build",
+    "check": "tsc",
+    "bundle": "esbuild --bundle index.ts --outfile=build/index.js --define:global=window",
+    "build": "npm run check && npm run copy-files && npm run bundle"
+  },
+  "dependencies": {
+    "z3-solver": "^4.9.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.49",
+    "typescript": "^4.7.4"
+  }
+}
